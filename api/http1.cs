@@ -51,10 +51,18 @@ namespace MyStaticWebApp4
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
 
-            var response = req.CreateResponse(HttpStatusCode.OK);
-        response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+            //var response = req.CreateResponse(HttpStatusCode.OK);
+           //response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
 
-            response.WriteString("Welcome to Azure Functions!");
+            //response.WriteString("Welcome to Azure Functions!");
+
+            var tempResponse = "Welcome to Azure Functions!";
+
+            var itemData = new { name = "name"};
+
+            var response = req.CreateResponse(HttpStatusCode.OK);
+
+            response.WriteAsJsonAsync(itemData);
 
             return response;
 
@@ -63,5 +71,11 @@ namespace MyStaticWebApp4
     public class ToDoItem
     {
         public string id { get; set; }
+    }
+
+    public class ResponseClass
+    {
+        [JsonProperty("content")]
+        public string Content { get; set; }
     }
 }
