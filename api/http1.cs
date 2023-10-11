@@ -5,7 +5,7 @@ using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace cosmosfa56
+namespace MyStaticWebApp4
 {
     public class http1
     {
